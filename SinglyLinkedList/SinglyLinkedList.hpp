@@ -2,84 +2,47 @@
 #define SINGLY_LINKED_LIST_H
 
 #include <iostream>
+#include <string>
 
-struct Node
+struct SinglyLinkedListData
 {
-    std::string data;
-    Node* next;
+    int         iData;
+    double      dData;
+    std::string strData;
+};
+
+class SinglyLinkedListNode
+{
+    private:
+        SinglyLinkedListData  data;
+        SinglyLinkedListNode* next;
+    public:
+        SinglyLinkedListNode();
+        SinglyLinkedListNode(SinglyLinkedListData data);
+        ~SinglyLinkedListNode();
+
+        void SetData(const SinglyLinkedListData data);
+        SinglyLinkedListData GetData() const;
+
+        void SetNext(SinglyLinkedListNode* const next);
+        SinglyLinkedListNode* GetNext() const;
 };
 
 class SinglyLinkedList
 {
     private:
-        Node* head;
-        Node* tail;
+        SinglyLinkedListNode* head;
+        SinglyLinkedListNode* tail;
+
     public:
         SinglyLinkedList();
-        void AddNode(std::string data);
-        std::string RemoveNode(std::string data);
-        void DisplayList();
-        
+
+        // Deletes all nodes recursively through SinglyLinkedListNode destructor
+        ~SinglyLinkedList();
+
+        void AddNodeToHead(SinglyLinkedListData data);
+
 };
 
-SinglyLinkedList::SinglyLinkedList()
-{
-    this->head = nullptr;
-    this->tail = nullptr;
-}
-
-void SinglyLinkedList::AddNode(std::string data)
-{
-    
-    if(this->head == nullptr)
-    {
-        this->head = new Node;
-        this->tail = head;
-        this->head->data = data;
-        this->head->next = nullptr;
-    }
-    else
-    {
-        this->tail->next = new Node;
-        this->tail = this->tail->next;
-        this->tail->data = data;
-        this->tail->next = nullptr;
-    }
-}
-
-std::string SinglyLinkedList::RemoveNode(std::string data)
-{
-    std::string returnData("Data not found");
-    if(this->head == nullptr)
-    {
-        return returnData;
-    }
-    else
-    {
-        Node* removeNode = this->head;
-        while(removeNode != nullptr)
-        {
-            if(removeNode->next->data == data)
-            {
-                returnData = removeNode->next->data;
-                removeNode->next = removeNode->next->next;
-                // removeNode->next = nullptr;
-                delete removeNode->next;
-            }
-            removeNode = removeNode->next;
-        }
-    }
-    return returnData;
-}
-
-void SinglyLinkedList::DisplayList()
-{
-    Node* printNode = this->head;
-    while(printNode != nullptr)
-    {
-        std::cout << printNode->data << "->";
-        printNode = printNode->next;
-    }
-}
 
 #endif /* SINGLY_LINKED_LIST_H */

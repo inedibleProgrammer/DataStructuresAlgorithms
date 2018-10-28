@@ -19,6 +19,19 @@ int main(int argc, char *argv[])
 
     SinglyLinkedList linkedList;
     linkedList.AddNodeToHead(data1);
+    linkedList.AddNodeToHead(data1);
+    linkedList.AddNodeToHead(data1);
+    linkedList.AddNodeToHead(data1);
+    linkedList.AddNodeToHead(data1);
+    linkedList.AddNodeToHead(data1);
+
+
+
+    linkedList.PrintLinkedList();
+
+    linkedList.DeleteNodeFromHead();
+
+    std::cout << "\n\n";
 
     linkedList.PrintLinkedList();
 

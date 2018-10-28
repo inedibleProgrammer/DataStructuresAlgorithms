@@ -96,6 +96,21 @@ void SinglyLinkedList::AddNodeToTail(const SinglyLinkedListData data)
     }
 }
 
+void SinglyLinkedList::DeleteNodeFromHead()
+{
+    if (this->head == nullptr)
+    {
+        return;
+    }
+    else
+    {
+        SinglyLinkedListNode* temp = this->head;
+        this->head = this->head->GetNext();
+        temp->SetNext(nullptr);
+        delete temp;
+    }
+}
+
 void SinglyLinkedList::PrintLinkedList()
 {
     SinglyLinkedListNode* temp = head;

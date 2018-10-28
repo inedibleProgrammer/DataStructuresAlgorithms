@@ -40,7 +40,11 @@ class SinglyLinkedList
         // Deletes all nodes recursively through SinglyLinkedListNode destructor
         ~SinglyLinkedList();
 
-        void AddNodeToHead(SinglyLinkedListData data);
+        void AddNodeToHead(const SinglyLinkedListData data);
+        void AddNodeToTail(const SinglyLinkedListData data);
+
+        
+        void PrintLinkedList();
 
 };
 

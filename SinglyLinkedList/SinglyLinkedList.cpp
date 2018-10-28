@@ -2,6 +2,9 @@
 #include <string>
 #include "SinglyLinkedList.hpp"
 
+/*****************************************************************
+* SinglyLinkedListNode
+******************************************************************/
 
 SinglyLinkedListNode::SinglyLinkedListNode()
 {
@@ -57,7 +60,7 @@ SinglyLinkedList::~SinglyLinkedList()
     delete this->head; 
 }
 
-void SinglyLinkedList::AddNodeToHead(SinglyLinkedListData data)
+void SinglyLinkedList::AddNodeToHead(const SinglyLinkedListData data)
 {
     if( this->head == nullptr )
     {
@@ -70,5 +73,20 @@ void SinglyLinkedList::AddNodeToHead(SinglyLinkedListData data)
         this->head = new SinglyLinkedListNode(data);
         this->head->SetNext(temp);
         temp = nullptr;
+    }
+}
+
+void SinglyLinkedList::AddNodeToTail(const SinglyLinkedListData data)
+{
+    
+}
+
+void SinglyLinkedList::PrintLinkedList()
+{
+    SinglyLinkedListNode* temp = head;
+    while(temp != nullptr)
+    {
+        std::cout << "|" << temp->GetData().iData << "|" << temp->GetData().dData << "|" <<temp->GetData().strData << "|->";
+        temp = temp->GetNext();
     }
 }

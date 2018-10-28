@@ -22,7 +22,11 @@ SinglyLinkedListNode::SinglyLinkedListNode(SinglyLinkedListData data)
 
 SinglyLinkedListNode::~SinglyLinkedListNode()
 {
-    delete this->next; // This should call all following nodes' destructors
+    // This should call all following nodes' destructors
+    if(this->next != nullptr)
+    {
+        delete this->next; 
+    }
 }
 
 void SinglyLinkedListNode::SetData(const SinglyLinkedListData data)
@@ -78,7 +82,18 @@ void SinglyLinkedList::AddNodeToHead(const SinglyLinkedListData data)
 
 void SinglyLinkedList::AddNodeToTail(const SinglyLinkedListData data)
 {
-    
+    if(this->tail == nullptr)
+    {
+        this->tail = new SinglyLinkedListNode(data);
+        this->head = this->tail;
+    }
+    else
+    {
+        SinglyLinkedListNode* temp = new SinglyLinkedListNode(data);
+        this->tail->SetNext(temp);
+        this->tail = temp;
+        temp = nullptr;
+    }
 }
 
 void SinglyLinkedList::PrintLinkedList()

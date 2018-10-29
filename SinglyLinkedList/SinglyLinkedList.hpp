@@ -42,10 +42,13 @@ class SinglyLinkedList
 
         void AddNodeToHead(const SinglyLinkedListData data);
         void AddNodeToTail(const SinglyLinkedListData data);
+        // void AddNode(const SinglyLinkedListData data);
 
         void DeleteNodeFromHead();
         void DeleteNodeFromTail();
+        // void DeleteNode(SinglyLinkedListNode* node);
         
+        // void Sort(); polymorphism
         void PrintLinkedList();
 
 };

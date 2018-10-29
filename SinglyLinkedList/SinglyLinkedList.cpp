@@ -98,7 +98,7 @@ void SinglyLinkedList::AddNodeToTail(const SinglyLinkedListData data)
 
 void SinglyLinkedList::DeleteNodeFromHead()
 {
-    if (this->head == nullptr)
+    if(this->head == nullptr)
     {
         return;
     }
@@ -111,12 +111,31 @@ void SinglyLinkedList::DeleteNodeFromHead()
     }
 }
 
+void SinglyLinkedList::DeleteNodeFromTail()
+{
+    if(this->tail == nullptr)
+    {
+        return;
+    }
+    else
+    {
+        SinglyLinkedListNode* temp = this->head;
+        while(temp->GetNext() != this->tail)
+        {
+            temp = temp->GetNext();
+        }
+        this->tail = temp;
+        temp = temp->GetNext();
+        delete temp;
+    }
+}
+
 void SinglyLinkedList::PrintLinkedList()
 {
     SinglyLinkedListNode* temp = head;
     while(temp != nullptr)
     {
-        std::cout << "|" << temp->GetData().iData << "|" << temp->GetData().dData << "|" <<temp->GetData().strData << "|->";
+        std::cout << "|" << temp->GetData().iData << "," << temp->GetData().dData << "," <<temp->GetData().strData << "|->";
         temp = temp->GetNext();
     }
 }

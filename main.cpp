@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     SinglyLinkedListData data2 =
     {
         2,
-        2.0,
+        2.2,
         "Two!"
     };
 

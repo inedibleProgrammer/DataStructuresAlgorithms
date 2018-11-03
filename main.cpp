@@ -10,63 +10,42 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    SinglyLinkedListData data1 =
+    std::cout << "Beginning of main()" << "\n\n\n";
+
+    SinglyLinkedListData dataArray[100];
+
+    for(int i = 0; i < 100; i++)
     {
-        1,
-        1.0,
-        "One!"
-    };
+        dataArray[i].iData = i;
+        dataArray[i].dData = double(i + 0.5);
+        dataArray[i].strData = "Node: " + std::to_string(i);
+    }
 
-    SinglyLinkedListData data2 =
-    {
-        2,
-        2.2,
-        "Two!"
-    };
+    SinglyLinkedList* linkedListPtr = new SinglyLinkedList();
 
-    SinglyLinkedListData data3 =
-    {
-        3,
-        3.0,
-        "Three!"
-    };
+    linkedListPtr->AddNodeToHead(dataArray[1]);
+    linkedListPtr->AddNodeToTail(dataArray[2]);
+    linkedListPtr->AddNodeToTail(dataArray[3]);
+    linkedListPtr->AddNodeToTail(dataArray[4]);
+    linkedListPtr->AddNodeToTail(dataArray[5]);
+    linkedListPtr->AddNodeToTail(dataArray[6]);
+    linkedListPtr->AddNodeToTail(dataArray[7]);
 
-    SinglyLinkedListData data4 =
-    {
-        4,
-        4.0,
-        "Four!"
-    };
-
-    SinglyLinkedListData data5 =
-    {
-        5,
-        5.0,
-        "Five!"
-    };
-
-    SinglyLinkedList linkedList;
-    linkedList.AddNodeToHead(data1);
-    linkedList.AddNodeToHead(data2);
-    linkedList.AddNodeToHead(data3);
-    linkedList.AddNodeToHead(data4);
-    linkedList.AddNodeToHead(data5);
-    linkedList.AddNodeToHead(data1);
-
-
-
-
-    linkedList.PrintLinkedList();
-
-    linkedList.DeleteNodeFromHead();
+    linkedListPtr->PrintLinkedList();
 
     std::cout << "\n\n";
 
-    linkedList.PrintLinkedList();
+    linkedListPtr->DeleteLinkedList();
+
+    linkedListPtr->PrintLinkedList();
+
 
     std::cout << "\n\n\n\n";
     std::cout << "End Of main()" << std::endl;
 
     return a.exec();
 }
+
+
+
 

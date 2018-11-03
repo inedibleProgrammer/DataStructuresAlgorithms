@@ -22,11 +22,7 @@ SinglyLinkedListNode::SinglyLinkedListNode(SinglyLinkedListData data)
 
 SinglyLinkedListNode::~SinglyLinkedListNode()
 {
-    // This should call all following nodes' destructors
-    if(this->next != nullptr)
-    {
-        delete this->next; 
-    }
+    delete this->next; 
 }
 
 void SinglyLinkedListNode::SetData(const SinglyLinkedListData data)
@@ -62,6 +58,8 @@ SinglyLinkedList::SinglyLinkedList()
 SinglyLinkedList::~SinglyLinkedList()
 {
     delete this->head; 
+    this->head = nullptr;
+    this->tail = nullptr;
 }
 
 void SinglyLinkedList::AddNodeToHead(const SinglyLinkedListData data)
@@ -130,12 +128,26 @@ void SinglyLinkedList::DeleteNodeFromTail()
     }
 }
 
+void SinglyLinkedList::DeleteLinkedList()
+{
+    delete this->head;
+    this->head = nullptr;
+    this->tail = nullptr;
+}
+
 void SinglyLinkedList::PrintLinkedList()
 {
-    SinglyLinkedListNode* temp = head;
-    while(temp != nullptr)
+    if(this->head == nullptr)
     {
-        std::cout << "|" << temp->GetData().iData << "," << temp->GetData().dData << "," <<temp->GetData().strData << "|->";
-        temp = temp->GetNext();
+        std::cout << "Empty List";
+    }
+    else
+    {
+        SinglyLinkedListNode* temp = head;
+        while(temp != nullptr)
+        {
+            std::cout << "|" << temp->GetData().iData << "," << temp->GetData().dData << "," <<temp->GetData().strData << "|->";
+            temp = temp->GetNext();
+        }
     }
 }

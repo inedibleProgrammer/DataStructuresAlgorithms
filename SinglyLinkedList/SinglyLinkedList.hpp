@@ -47,9 +47,13 @@ class SinglyLinkedList
         void DeleteNodeFromHead();
         void DeleteNodeFromTail();
         // void DeleteNode(SinglyLinkedListNode* node);
+        void DeleteLinkedList();
         
         // void Sort(); polymorphism
         void PrintLinkedList();
+
+        // SinglyLinkedListNode* BinarySearch() const;
+        // void BinarySearchGame() const;
 
 };
 

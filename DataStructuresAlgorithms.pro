@@ -17,9 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         SinglyLinkedList/SinglyLinkedList.cpp \
+        Algorithms/Algorithms.hpp \
 
 HEADERS += \
         SinglyLinkedList/SinglyLinkedList.hpp \
+        Algorithms/Algorithms.cpp \
 
 
 # Default rules for deployment.
